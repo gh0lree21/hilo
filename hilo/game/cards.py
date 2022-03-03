@@ -31,23 +31,31 @@ class Cards:
         if not self.second_time:
             self.create_deck()
 
+            # Generates first card of the game
             self.card = self.deck[random.randint(0, len(self.deck) - 1)]
             
-            # assert len(card_list) == 52, 'For loops are off if this fires'
-            
-            # Makes sure that this if statement only runs once
+            # This variable makes sure that this only runs once per game
             self.second_time += 1
-            print('\n\n self: Second Time', self.second_time, '\n\n')
+            assert self.second_time < 2
+
+            # Uncomment the following to make sure that self.second_time is working
+            # properly and that this only runs once per game.
+            # print('\n\n self: Second Time', self.second_time, '\n\n')
 
         else:
-
             # Keeps track of the previous card 
             self.previous_card = self.card[0]
-            print('This is self.card:', self.card[0])
+
+            # print('This is previous.card:', self.previous_card)
         
             # Choose a random card out of the 52 that have been created within the deck.
-            self.card = self.deck[random.randint(0, len(self.deck) - 1)]
-        
+            self.card = self.deck[random.randint(0, len(self.deck) - 1)]            
+            
+            self.deck.remove(self.card)
+            print(self.deck)
+
+
+            # print('This is Current card:', self.card[0])
         
         return self.card
 
@@ -63,7 +71,6 @@ class Cards:
                 return False
             else:
                 return True
-            pass
         
         # user_guess > card
         print('it lives')
@@ -71,6 +78,6 @@ class Cards:
 
 player1 = Cards()
 # Currently the code below checks to make sure that a drawn card is actually retrieved
-for _ in range(0, 4):
+for _ in range(0, 53):
     print('\n\n', player1.draw(), ' -- card drawn \n\n')
     print(player1.previous_card)
