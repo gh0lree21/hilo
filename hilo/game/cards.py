@@ -56,7 +56,7 @@ class Cards:
 
 
 
-# Currently the code below this makes it so that a drawn card is actually retrieved
+# Currently the code below checks to make sure that a drawn card is actually retrieved
 player1 = Cards()
 print('\n\n', player1.draw(), ' -- The previous is the card drawn \n\n')
 print(player1.previous_card)
