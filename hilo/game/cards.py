@@ -1,6 +1,4 @@
 import random
-from game.director import Director
-
 
 # Purpose: Create cards and check values.
 class Cards:
@@ -17,8 +15,6 @@ class Cards:
     
         # Stores all 52 cards
         self.deck = None
-
-        self.user_guess = Director()
 
 
     # Create a list of cards and store into deck list
@@ -56,8 +52,8 @@ class Cards:
         return self.card
 
     # Check user guess and return if the user was correct or not.
-    def is_higher_or_lower(self):
-        if self.user_guess.lower() == 'h':
+    def is_higher_or_lower(self, user_guess):
+        if user_guess.lower() == 'h':
             if self.card[0] < self.previous_card:
                 return True
             else:
