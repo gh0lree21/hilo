@@ -35,7 +35,12 @@ class Director:
 
     # function to compare user input, draw cards, and apply points.
     def update_game(self):
-        self.player.is_higher_or_lower(self.user_guess)
+        give_points = self.player.is_higher_or_lower(self.user_guess)
+        
+        if give_points:
+            self.total_points += 100
+        else:
+            self.total_points -= 75
         
         """the mothod for points will be in the cards class, right?"""
         # Cards.points()
@@ -45,4 +50,4 @@ class Director:
     def output(self):
        
        #for when we have the points method up
-        print('Your total points are ')    
+        print(f'Your total points are{self.total_points}')    
