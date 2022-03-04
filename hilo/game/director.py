@@ -10,7 +10,7 @@ class Director:
         self.total_points = 300
         self.is_playing = True
         self.user_guess = ''
-
+        self.player = Cards()
     
     # function for game loop
     def game_start(self):
@@ -19,12 +19,12 @@ class Director:
         
         # format of first card [number, suit]
         
-        first_card = Cards.draw()
+        first_card = self.player.draw()
         print(f'the first card is{first_card}')
         while self.is_playing == True:
             
             self.get_input()
-            Cards.draw()
+            self.player.draw()
             self.update_game()
             self.output()
 
@@ -35,7 +35,7 @@ class Director:
 
     # function to compare user input, draw cards, and apply points.
     def update_game(self):
-        Cards.is_higher_or_lower()
+        self.player.is_higher_or_lower(self.user_guess)
         
         """the mothod for points will be in the cards class, right?"""
         # Cards.points()
