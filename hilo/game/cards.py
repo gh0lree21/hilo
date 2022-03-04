@@ -12,7 +12,7 @@ class Cards:
 
         # Variable that checks to see if the game is starting up or has already been played once.
         self.second_time = 0
-
+        
         self.deck = None
 
 
@@ -23,7 +23,7 @@ class Cards:
             for number in range(1, 14):
                 deck.append([number, suit])
         self.deck = deck
-        print(deck)
+        # print(deck)
         return deck
 
     def draw(self):
@@ -52,7 +52,7 @@ class Cards:
             self.card = self.deck[random.randint(0, len(self.deck) - 1)]            
             
             self.deck.remove(self.card)
-            print(self.deck)
+            # print(self.deck)
 
 
             # print('This is Current card:', self.card[0])
@@ -71,13 +71,11 @@ class Cards:
                 return False
             else:
                 return True
-        
-        # user_guess > card
-        print('it lives')
 
 
-player1 = Cards()
-# Currently the code below checks to make sure that a drawn card is actually retrieved
-for _ in range(0, 53):
-    print('\n\n', player1.draw(), ' -- card drawn \n\n')
-    print(player1.previous_card)
+# player1 = Cards()
+# Currently the code below checks to make sure that a drawn card is actually retrieved and that the
+# corrosponding card is removed from the deck.
+# for _ in range(0, 53):
+#     print('\n\n', player1.draw(), ' -- card drawn \n\n')
+#     print(player1.previous_card)
