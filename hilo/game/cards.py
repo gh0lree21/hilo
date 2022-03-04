@@ -41,10 +41,11 @@ class Cards:
 
         else:
             # Keeps track of the previous card 
-            self.previous_card = self.card[0]
-        
+            previous_card = self.card[0]
+            self.previous_card = previous_card
+       
             # Choose a random card out of the 52 that have been created within the deck.
-            self.card = self.deck[random.randint(0, len(self.deck) - 1)]            
+            self.card = self.deck[random.randint(0, len(self.deck) - 1)]    
             
             # Removes used card from deck
             self.deck.remove(self.card)
