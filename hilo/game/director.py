@@ -11,6 +11,7 @@ class Director:
         self.is_playing = True
         self.user_guess = ''
         self.cards = Cards()
+        self.drawn_card = None
     
     # function for game loop
     def game_start(self):
@@ -24,7 +25,8 @@ class Director:
         while self.is_playing == True:
             
             self.get_input()
-            self.current_card = self.cards.draw()
+            drawn_card = self.cards.draw()
+            self.drawn_card = drawn_card
             self.update_game()
             self.output()
 
@@ -38,7 +40,7 @@ class Director:
         give_points = self.cards.is_higher_or_lower(self.user_guess)
         
 
-        if give_points == True:
+        if give_points:
             self.total_points += 100
         else:
             self.total_points -= 75
@@ -60,4 +62,4 @@ class Director:
             self.is_playing = False
         else:
             print(f'\nYour total points are {self.total_points}') 
-            print(f'The next card was: {self.cards.draw()}')
+            print(f'The next card was: {self.drawn_card}')

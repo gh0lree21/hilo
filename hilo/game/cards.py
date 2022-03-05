@@ -55,6 +55,10 @@ class Cards:
     # Check user guess and return if the user was correct or not.
     def is_higher_or_lower(self, user_guess):
         assert type(user_guess) == str
+        assert user_guess.lower() == 'h' or user_guess.lower() == 'l', 'A string was passed other that l or h'
+        
+        print('Self.previous_card is:', self.previous_card)
+        print('Self.card is:', self.card)
         if user_guess.lower() == 'h':
             if self.card[0] >= self.previous_card:
                 return True
