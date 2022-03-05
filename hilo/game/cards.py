@@ -59,7 +59,7 @@ class Cards:
             if self.card[0] >= self.previous_card:
                 return True
             else:
-                False
+                return False
         else:
             if self.card[0] <= self.previous_card:
                 return True
